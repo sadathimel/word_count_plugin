@@ -40,7 +40,7 @@ add_filter( 'the_content', 'wordcount_count_words' );
 function wordcount_reading_time( $content ) {
     $stripped_content = strip_tags( $content );
     $wordn            = str_word_count( $stripped_content );
-    $reading_minute   = ceil( $wordn / 200 );
+    $reading_minute   = floor ( $wordn / 200 );
     $reading_seconds  = floor( $wordn % 200 / ( 200 / 60 ) );
     $is_visible       = apply_filters( 'wordcount_display_readingtime', 1 );
     if ( $is_visible ) {
