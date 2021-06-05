@@ -13,14 +13,17 @@ Domain Path: /languages
 
 
 
-function wordcount_activition_hook(){
+// function wordcount_activition_hook(){
 
+// }
+// register_activation_hook(__FILE__,"wordcount_activition_hook");
+
+// function wordcount_deactivition_hook(){
+
+// }
+// register_deactivation_hook(__FILE__,"wordcount_deactivition_hook");
+
+function wordcount_load_textdomain(){
+    load_plugin_textdomain('word-count',false,dirname(__FILE__)."/languages");
 }
-register_activation_hook(__FILE__,"wordcount_activition_hook");
-
-function wordcount_deactivition_hook(){
-
-}
-register_deactivation_hook(__FILE__,"wordcount_deactivition_hook");
-
-
+add_action( "plugins_loaded", 'wordcount_load_textdomain');
